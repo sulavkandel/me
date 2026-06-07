@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kathmandu Toastmasters Club — Meeting Agenda</title>
+<style>
+  :root {
+    --maroon: #772432;
+    --maroon-dark: #5a1a26;
+    --blue: #004165;
+    --gold: #f2df74;
+    --gray: #a9b2b1;
+    --light: #f7f4f2;
+    --ink: #2b2b2b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #e9eaec;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 34px 24px 28px;
+    position: relative;
+  }
+  header .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--maroon);
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 0.5px;
+  }
+  header .subtitle {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-top: 6px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  header .slogan {
+    font-style: italic;
+    margin-top: 14px;
+    font-size: 16px;
+    opacity: 0.95;
+  }
+
+  .meeting-info {
+    background: var(--blue);
+    color: #fff;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  .meeting-info strong { color: var(--gold); }
+
+  /* ---------- Pillars ---------- */
+  .pillars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 22px;
+    background: var(--light);
+  }
+  .pillar {
+    flex: 1 1 150px;
+    text-align: center;
+    background: #fff;
+    border-top: 4px solid var(--maroon);
+    border-radius: 8px;
+    padding: 14px 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .pillar .word {
+    font-weight: 800;
+    color: var(--maroon);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+  }
+  .pillar .focus { font-size: 13px; color: #555; }
+
+  /* ---------- Body ---------- */
+  main { padding: 10px 32px 32px; }
+
+  section { margin-top: 28px; }
+
+  h2 {
+    color: var(--maroon);
+    font-size: 19px;
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2 .tag {
+    background: var(--maroon);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+
+  .note { font-style: italic; color: #777; font-size: 13px; margin: 4px 0 10px; }
+
+  blockquote {
+    margin: 0;
+    padding: 16px 20px;
+    background: var(--light);
+    border-left: 5px solid var(--blue);
+    border-radius: 6px;
+    font-style: italic;
+    color: #444;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  th {
+    background: var(--blue);
+    color: #fff;
+    text-align: left;
+    padding: 9px 12px;
+    font-weight: 600;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e3e3e3;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #faf8f7; }
+  td.time, th.time { white-space: nowrap; font-weight: 600; color: var(--maroon); }
+
+  .blank { color: #bbb; }
+
+  /* Word of the day card */
+  .wod {
+    background: var(--light);
+    border: 1px dashed var(--gray);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+  }
+  .wod div { margin: 4px 0; }
+  .wod .label { font-weight: 700; color: var(--blue); }
+  .fill { border-bottom: 1px dotted #999; display: inline-block; min-width: 220px; }
+
+  /* Timer flags */
+  .flags { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 4px; }
+  .flag {
+    font-size: 12px; font-weight: 600; color: #fff;
+    padding: 4px 12px; border-radius: 14px;
+  }
+  .flag.green { background: #3a9d4f; }
+  .flag.yellow { background: #e0a800; }
+  .flag.red { background: #c0392b; }
+
+  ul.clean { margin: 10px 0 0; padding-left: 20px; font-size: 14px; }
+  ul.clean li { margin: 4px 0; }
+
+  footer {
+    background: var(--maroon);
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  footer .gold { color: var(--gold); }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="badge">T</div>
+      <h1>Kathmandu Toastmasters Club</h1>
+      <div class="subtitle">Meeting Agenda</div>
+      <div class="slogan">&ldquo;Where Unity in Diversity Comes Alive&rdquo;</div>
+    </header>
+
+    <div class="meeting-info">
+      We meet every <strong>MONDAY</strong> &nbsp;&bull;&nbsp;
+      <strong>Ananda Bhumi Events, New Baneshwor</strong> &nbsp;&bull;&nbsp;
+      <strong>5:45 PM (NST)</strong>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar"><div class="word">Speak</div><div class="focus">with Confidence</div></div>
+      <div class="pillar"><div class="word">Listen</div><div class="focus">with Purpose</div></div>
+      <div class="pillar"><div class="word">Learn</div><div class="focus">with Curiosity</div></div>
+      <div class="pillar"><div class="word">Connect</div><div class="focus">with Others</div></div>
+      <div class="pillar"><div class="word">Lead</div><div class="focus">with Impact</div></div>
+    </div>
+
+    <main>
+
+      <section>
+        <h2>Club Mission</h2>
+        <blockquote>
+          We provide a supportive and a positive learning experience in which members
+          are empowered to develop communication and leadership skills, resulting in
+          greater self-confidence and personal growth.
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>Theme Corner</h2>
+        <p class="note">Theme to be announced.</p>
+      </section>
+
+      <section>
+        <h2>Meeting Program</h2>
+        <table>
+          <thead>
+            <tr><th class="time">Time</th><th>Agenda Item</th><th>Person Responsible</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="time">6:00</td><td>Sergeant-At-Arms (SAA) Calls Meeting to Order</td><td>Ayusha Pradhan, MS3</td></tr>
+            <tr><td class="time">6:02</td><td>Presiding Officer</td><td>Namita Thapa, IP3</td></tr>
+            <tr><td class="time">6:07</td><td>PO introduces the Toastmaster of the Evening (TMOE)</td><td class="blank">&mdash;</td></tr>
+            <tr><td class="time">6:15</td><td>TMOE introduces the General Evaluator (GE) and role takers</td><td>Sudesha Rimal</td></tr>
+            <tr><td class="time">6:25</td><td>TMOE Introduces Featured Speakers</td><td class="blank">&mdash;</td></tr>
+            <tr><td class="time">6:35</td><td>TMOE introduces the Educational Series Presenter</td><td class="blank">&mdash;</td></tr>
+            <tr><td class="time">6:55</td><td>TMOE Introduces Table Topic Master</td><td>Jipi Kalu</td></tr>
+            <tr><td class="time">7:10</td><td>TMOE calls the General Evaluator for Evaluation</td><td class="blank">&mdash;</td></tr>
+            <tr><td class="time">7:23</td><td>Presentation of Awards by Ballot Counter and TMOE</td><td>Phurbu Tashi Lama</td></tr>
+            <tr><td class="time">7:30</td><td>Closing Remarks by Presiding Officer / Announcements / Meeting Adjourned</td><td>Namita Thapa, IP3</td></tr>
+            <tr><td class="time">7:30</td><td>Networking Break / Postmasters</td><td class="blank">&mdash;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Club Officers</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Name</th></tr></thead>
+          <tbody>
+            <tr><td>President</td><td>Namita Thapa</td></tr>
+            <tr><td>VP Education</td><td>Ranjana Koirala</td></tr>
+            <tr><td>VP Membership</td><td>Kanchan Subedi</td></tr>
+            <tr><td>VP Public Relations</td><td>Bigul Sapkota</td></tr>
+            <tr><td>Treasurer</td><td>Astha Shakya</td></tr>
+            <tr><td>Secretary</td><td>Sabitri Lamichhane</td></tr>
+            <tr><td>Sergeant at Arms</td><td>Ayusha Pradhan</td></tr>
+            <tr><td>Immediate Past President</td><td>Ankush Adhikari</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Meeting Roles</h2>
+        <table>
+          <thead><tr><th>Role</th><th>Name</th></tr></thead>
+          <tbody>
+            <tr><td>General Evaluator</td><td>Ganesh Kunwar</td></tr>
+            <tr><td>Grammarian <span class="note">(Reviews language &amp; introduces WOD)</span></td><td>Sabitri Lamichhane</td></tr>
+            <tr><td>Ah-Counter <span class="note">(Records interjections in speeches)</span></td><td>Falgun Shumsher Kunwar</td></tr>
+            <tr><td>Timer <span class="note">(Records time taken by speakers)</span></td><td>Santosh Tulachan</td></tr>
+            <tr><td>Ballot Counter <span class="note">(Collects votes for better speakers)</span></td><td>Phurbu Tashi Lama</td></tr>
+          </tbody>
+        </table>
+
+        <div class="wod">
+          <div><span class="label">Word of the Day:</span> <span class="fill"></span></div>
+          <div><span class="label">Meaning:</span> <span class="fill"></span></div>
+          <div><span class="label">Synonym:</span> <span class="fill"></span></div>
+          <div><span class="label">Example:</span> <span class="fill"></span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Featured Speakers</h2>
+        <p class="note">Speakers present speeches following the Toastmasters International Program / Pathways.</p>
+        <table>
+          <thead><tr><th>Speaker</th><th>Project</th><th>Speech Title</th><th>Level / Project</th><th class="time">Time</th></tr></thead>
+          <tbody>
+            <tr><td>Dip Sagun Gurung</td><td class="blank">&mdash;</td><td class="blank">&mdash;</td><td class="blank">&mdash;</td><td class="blank">&mdash;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Educational Series</h2>
+        <p class="note">Presenter follows the Pathway Enhancement guidelines.</p>
+        <table>
+          <thead><tr><th>Presenter</th><th>Session Title</th><th class="time">Time</th></tr></thead>
+          <tbody>
+            <tr><td>Bipassana Shrestha</td><td class="blank">&mdash;</td><td class="blank">&mdash;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Table Topics</h2>
+        <p class="note">An impromptu speaking session where guests can participate. Table Topic Master: <strong>Jipi Kalu</strong></p>
+        <div class="flags">
+          <span class="flag green">1:00 Min — Green</span>
+          <span class="flag yellow">1:30 Min — Yellow</span>
+          <span class="flag red">2:00 Min — Red</span>
+        </div>
+        <table>
+          <thead><tr><th>Speaker</th><th>Topic</th><th class="time">Time</th></tr></thead>
+          <tbody>
+            <tr><td class="blank">&mdash;</td><td class="blank">&mdash;</td><td class="time">1&ndash;2 min</td></tr>
+            <tr><td class="blank">&mdash;</td><td class="blank">&mdash;</td><td class="time">1&ndash;2 min</td></tr>
+            <tr><td class="blank">&mdash;</td><td class="blank">&mdash;</td><td class="time">1&ndash;2 min</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Evaluations</h2>
+        <div class="flags">
+          <span class="flag green">2:00 Min — Green</span>
+          <span class="flag yellow">2:30 Min — Yellow</span>
+          <span class="flag red">3:00 Min — Red</span>
+        </div>
+        <table>
+          <thead><tr><th>Speaker</th><th>Evaluator</th><th class="time">Time</th></tr></thead>
+          <tbody>
+            <tr><td>Dip Sagun Gurung</td><td>Laxmi Pathak</td><td class="time">2&ndash;3 min</td></tr>
+          </tbody>
+        </table>
+        <ul class="clean">
+          <li>Evaluation by <strong>Grammarian</strong>, <strong>Ah-Counter</strong>, and <strong>Timer</strong> (2 minutes each)</li>
+          <li>General Evaluator provides meeting and leaders evaluations (2&ndash;5 mins)</li>
+          <li>Return control to the TMOE &mdash; <strong>Sudesha Rimal</strong></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ballot Paper</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Your Vote</th></tr></thead>
+          <tbody>
+            <tr><td>Better Evaluator</td><td class="blank">&mdash;</td></tr>
+            <tr><td>Better Table Topic Speaker</td><td class="blank">&mdash;</td></tr>
+            <tr><td>Better Featured Speaker</td><td class="blank">&mdash;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+
+    <footer>
+      Kathmandu Toastmasters Club &nbsp;&bull;&nbsp;
+      <span class="gold">Where Leaders Are Made</span>
+    </footer>
+
+  </div>
+</body>
+</html>
